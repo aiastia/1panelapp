@@ -1,11 +1,13 @@
 additionalProperties:
   formFields:
-    - envKey: PANEL_APP_PORT_HTTP
-      label: 端口
+    - envKey: METATUBE_HTTP_PORT
+      label:
+        zh: "端口"
+        en: "Port"
       rule: paramPort
       type: number
       required: true
       default: 8922
       description:
-        zh: "对外暴露的端口号，默认 8922"
-        en: "External port for API, default 8922"
+        zh: "HTTP 服务端口号（1-65535），默认 8922。请确保端口未被占用。"
+        en: "HTTP service port (1-65535), default 8922. Ensure the port is available."
