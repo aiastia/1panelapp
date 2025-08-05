@@ -1,0 +1,7 @@
+services:
+  ddddocr:
+    image: xhofe/ddddocr_server:main
+    container_name: ${CONTAINER_NAME}
+    restart: always
+    ports:
+      - "${PANEL_APP_PORT_WEB_PORT}:9898"

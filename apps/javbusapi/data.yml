@@ -1,0 +1,20 @@
+name: "JavBus API"
+tags:
+  - 工具
+  - API
+title: "JavBus API 服务"
+description: "开箱即用的 JavBus 数据接口服务"
+additionalProperties:
+  key: javbusapi
+  name: JavBusAPI
+  tags:
+    - Tool
+    - API
+  shortDescZh: "JavBus 数据接口"
+  shortDescEn: "JavBus Data API"
+  type: api
+  crossVersionUpdate: true
+  website: "https://github.com/ovnrain/javbus-api"
+  architectures:
+    - amd64
+    - arm64

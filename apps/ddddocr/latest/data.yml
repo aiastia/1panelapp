@@ -1,0 +1,13 @@
+additionalProperties:
+  formFields:
+    # Web 服务端口配置
+    - envKey: "PANEL_APP_PORT_WEB_PORT"
+      labelZh: "Web服务端口"
+      labelEn: "Web Service Port"
+      default: "9898"
+      type: number
+      rule: paramPort
+      required: true
+      description:
+        zh: "访问OCR API的端口号"
+        en: "Port for accessing OCR API"

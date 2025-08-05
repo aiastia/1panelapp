@@ -1,0 +1,20 @@
+name: "ChatGPT-Next-Web"
+tags:
+  - AI
+  - 聊天
+title: "ChatGPT 网页版"
+description: "一键部署的ChatGPT网页客户端"
+additionalProperties:
+  key: chatgptnextweb
+  name: ChatGPT-Next-Web
+  tags:
+    - AI
+    - Chat
+  shortDescZh: "开源ChatGPT网页界面"
+  shortDescEn: "Open-source ChatGPT Web UI"
+  type: app
+  crossVersionUpdate: true
+  website: "https://github.com/Yidadaa/ChatGPT-Next-Web"
+  architectures:
+    - amd64
+    - arm64

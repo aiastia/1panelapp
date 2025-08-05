@@ -1,0 +1,45 @@
+additionalProperties:
+  formFields:
+    # 主机端口
+    - default: "3008"
+      envKey: "PANEL_APP_PORT_HOST_PORT"
+      labelEn: "Port"
+      labelZh: "端口"
+      type: number
+      rule: paramPort
+      description:
+        zh: "设置访问该应用的主机端口（默认 3008，可修改，建议 3000-9000 之间）"
+        en: "Set the host port for accessing this application (default 3008, recommended range 3000-9000)."
+
+    # OpenAI API Key
+    - envKey: "OPENAI_API_KEY"
+      labelEn: "API Key"
+      labelZh: "API密钥"
+      type: password
+      required: true
+      default: "sk-xxxxxxxxxxxxxxxxxxxx"
+      description:
+        zh: "在 OpenAI 账户管理页面获取的 API Key（必填），格式一般为 sk- 开头"
+        en: "Get your API Key from the OpenAI account page (required). Usually starts with sk-."
+
+    # 访问密码
+    - envKey: "CODE"
+      labelEn: "Password"
+      labelZh: "访问密码"
+      type: password
+      required: false
+      default: ""
+      description:
+        zh: "访问时需要输入的密码（可选），留空则无需密码即可访问"
+        en: "Optional password required for access. Leave empty for no password."
+
+    # 自定义API地址
+    - envKey: "BASE_URL"
+      labelEn: "API URL"
+      labelZh: "API地址"
+      type: text
+      required: true
+      default: "https://api.openai.com"
+      description:
+        zh: "填写 API 接口地址，可使用官方地址或代理服务，例如 https://api.openai.com"
+        en: "Enter API endpoint. You can use the official API or a proxy, e.g., https://api.openai.com."

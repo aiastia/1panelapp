@@ -1,0 +1,28 @@
+name: "应用名称"
+tags:
+  - 分类标签1
+  - 分类标签2
+title: "应用标题"
+description: "应用详细描述"
+additionalProperties:
+  key: app_key                  # 应用唯一标识（英文小写）
+  name: "应用英文名"             # 用于内部识别
+  tags:
+    - Tag1                      # 英文标签
+    - Tag2
+  shortDescZh: "应用简短描述"    # 中文简介
+  shortDescEn: "Short description"
+  description:                 # 多语言详细描述
+    en: English description
+    ja: 日本語説明
+    zh: 中文描述
+    # 其他语言...
+  type: app                     # 类型：app/tool/database
+  crossVersionUpdate: true      # 是否允许跨版本升级
+  limit: 1                      # 单机限制安装实例数
+  website: "https://官网URL"
+  github: "https://GitHub地址"
+  document: "https://文档URL"
+  architectures:               # 支持的架构
+    - amd64
+    - arm64

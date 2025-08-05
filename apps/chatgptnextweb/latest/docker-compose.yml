@@ -1,0 +1,11 @@
+services:
+  chatgpt-next-web:
+    container_name: ${CONTAINER_NAME}
+    image: yidadaa/chatgpt-next-web:latest
+    restart: always
+    ports:
+      - "${PANEL_APP_PORT_HOST_PORT}:3000"
+    environment:
+      - OPENAI_API_KEY=${OPENAI_API_KEY}
+      - CODE=${CODE}
+      - BASE_URL=${BASE_URL}

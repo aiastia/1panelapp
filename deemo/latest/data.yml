@@ -1,0 +1,35 @@
+additionalProperties:
+  formFields:
+    # 示例1：端口配置
+    - default: "8080"
+      envKey: "APP_PORT"
+      labelEn: "Web Port"
+      labelZh: "网页端口"
+      required: true
+      rule: paramPort
+      type: number
+
+    # 示例2：下拉选择（使用 values 替代 options）
+    - default: "production"
+      envKey: "MODE"
+      labelEn: "Run Mode"
+      labelZh: "运行模式"
+      type: select
+      values:                   # 关键修改点：使用 values 定义选项
+        - "production"
+        - "dev"
+      labels:                   # 多语言标签（可选）
+        en:
+          - "Production"
+          - "Development"
+        zh:
+          - "生产模式"
+          - "开发模式"
+
+    # 示例3：路径映射
+    - default: "/opt/data"
+      envKey: "DATA_DIR"
+      labelEn: "Data Directory"
+      labelZh: "数据存储路径"
+      type: text
+      required: true

@@ -1,0 +1,20 @@
+version: '3.8'
+services:
+  app_name:                     # 服务名（英文小写）
+    image: "镜像:标签"           # 例如 nginx:latest
+    container_name: ${CONTAINER_NAME}
+    restart: unless-stopped
+    network_mode: bridge        # 或 host
+    ports:
+      - "${APP_PORT}:80"        # 动态注入端口
+    volumes:
+      - "${DATA_DIR}:/data"     # 动态注入路径
+    environment:
+      - "MODE=${MODE}"          # 从表单获取变量
+      - "PASSWORD=${ADMIN_PASSWORD}"
+    # 高级配置（按需添加）
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost"]
+      interval: 30s
+      timeout: 5s
+      retries: 3

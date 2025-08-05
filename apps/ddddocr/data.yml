@@ -1,0 +1,20 @@
+name: "ddddOCR Server"
+tags:
+  - 工具
+  - OCR
+title: "ddddOCR 验证码识别服务"
+description: "开箱即用的验证码识别API服务"
+additionalProperties:
+  key: ddddocr
+  name: ddddOCR
+  tags:
+    - Tool
+    - OCR
+  shortDescZh: "高精度验证码识别API"
+  shortDescEn: "CAPTCHA recognition API"
+  type: api
+  crossVersionUpdate: true
+  website: "https://github.com/sml2h3/ddddocr"
+  architectures:
+    - amd64
+    - arm64

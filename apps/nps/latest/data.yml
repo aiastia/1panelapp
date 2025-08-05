@@ -1,0 +1,111 @@
+additionalProperties:
+  formFields:
+    # 基础配置
+    - envKey: "RUN_MODE"
+      labelZh: "运行模式"
+      type: select
+      values:
+        - label: "开发模式"
+          value: "dev"
+        - label: "生产模式"
+          value: "pro"
+      default: "dev"
+
+    # 网络端口
+    - envKey: "PANEL_APP_PORT_HTTP_PROXY_PORT"
+      labelZh: "HTTP代理端口"
+      default: "8880"
+      type: number
+      rule: paramPort
+
+    - envKey: "PANEL_APP_PORT_HTTPS_PROXY_PORT"
+      labelZh: "HTTPS代理端口"
+      default: "4443" 
+      type: number
+      rule: paramPort
+
+    - envKey: "PANEL_APP_PORT_BRIDGE_PORT"
+      labelZh: "桥接端口"
+      default: "8024"
+      type: number
+      rule: paramPort
+      required: true
+
+    - envKey: "PANEL_APP_PORT_WEB_PORT"
+      labelZh: "Web管理端口"
+      default: "8080"
+      type: number
+      rule: paramPort
+
+    - envKey: "Web_OPEN_SSL"
+      labelZh: "启用SSL"
+      type: boolean
+      default: false
+
+    # 安全认证
+    - envKey: "PUBLIC_VKEY"
+      labelZh: "公共密钥"
+      default: "nps_public_2023"
+      type: password
+      required: true
+    - envKey: "AUTH_KEY"
+      labelZh: "认证密钥"
+      default: "ghashgawrehawerh"
+      type: password
+      required: true
+      description:
+        zh: "web api密钥，用于客户端与服务端的身份验证，建议设置为16位复杂字符串"
+        en: "Web API key for client-server authentication, recommended to be a complex 16-character string"
+        
+    - envKey: "AUTH_CRYPT_KEY"  
+      labelZh: "加密密钥"
+      default: "joU1jVZrdK59AOUX"
+      type: password
+      required: true
+      defescription:
+        zh: "获取服务端authKey时的aes加密密钥，16位"
+        en: "AES encryption key for obtaining server authKey, 16 characters"
+
+
+    - envKey: "WEB_USERNAME"
+      labelZh: "管理员账号"
+      default: "admin"
+      type: text
+      required: true
+
+    - envKey: "WEB_PASSWORD"
+      labelZh: "管理员密码"
+      default: "NPS@securePwd123"
+      type: password
+      required: true
+
+    # 域名与证书
+    - envKey: "WEB_HOST"
+      labelZh: "管理域名"
+      default: "nps.yourdomain.com"
+      type: text
+      required: true
+
+    - envKey: "ALLOW_PORTS"
+      labelZh: "允许端口范围"
+      default: "9001-9009,10001,11000-12000"
+      type: text
+      description:
+        zh: "允许的端口范围，多个端口用逗号分隔，支持范围格式如9001-9009"
+        en: "Allowed port ranges, separated by commas, supports range format like 9001-9009"
+
+    - envKey: "WEB_CERT_FILE"
+      labelZh: "Web证书文件"
+      default: "./conf/server.pem"
+      type: text
+      description:
+        zh: "Web管理端口使用的SSL证书文件路径"
+        en: "Path to the SSL certificate file for the web management port"
+
+    - envKey: "WEB_KEY_FILE"
+      labelZh: "Web密钥文件"
+      default: "./conf/server.key"
+      type: text
+      description:
+        zh: "Web管理端口使用的SSL密钥文件路径"
+        en: "Path to the SSL key file for the web management port"   

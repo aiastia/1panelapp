@@ -1,0 +1,7 @@
+services:
+  javbus-api:
+    image: ovnrain/javbus-api
+    container_name: ${CONTAINER_NAME}
+    restart: unless-stopped
+    ports:
+      - "${PANEL_APP_PORT_API_PORT}:3000"

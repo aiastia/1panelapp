@@ -1,0 +1,11 @@
+additionalProperties:
+  formFields:
+    - envKey: PANEL_APP_PORT_API_PORT
+      labelEn: "API Port"
+      labelZh: "API端口"
+      type: number
+      required: true
+      default: 8922
+      description:
+        zh: "对外暴露的端口号，默认 8922"
+        en: "External port for API, default 8922"

@@ -1,0 +1,32 @@
+name: NPS
+tags:
+  - 网络
+  - 代理
+title: 内网穿透服务端
+description: 轻量级内网穿透代理服务端，支持TCP/KCP协议
+additionalProperties:
+  key: nps
+  name: NPS
+  tags:
+    - Network
+    - Proxy
+  shortDescZh: 高性能内网穿透代理服务端
+  shortDescEn: High-performance intranet penetration proxy server
+  description:
+    en: Lightweight proxy server for establishing intranet penetration tunnels
+    ja: イントラネット透過トンネルを確立する軽量プロキシサーバー
+    ms: Pelayan proksi ringan untuk menubuhkan terowong penembusan intranet
+    pt-br: Servidor proxy leve para estabelecer túneis de penetração na intranet
+    ru: Легкий прокси-сервер для создания туннелей доступа к внутренней сети
+    ko: 인트라넷 터널 구축을 위한 경량 프록시 서버
+    zh-Hant: 用於建立內網穿透隧道的輕量代理伺服器
+    zh: 用于建立内网穿透隧道的轻量代理服务器
+  type: tool
+  crossVersionUpdate: true
+  limit: 1
+  website: https://github.com/ehang-io/nps
+  github: https://github.com/lihaixin/nps
+  document: https://ehang-io.github.io/nps
+  architectures:
+    - amd64
+    - arm64
