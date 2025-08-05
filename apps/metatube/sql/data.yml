@@ -1,6 +1,6 @@
 additionalProperties:
   formFields:
-    - envKey: METATUBE_HTTP_PORT
+    - envKey: PANEL_APP_PORT_HTTP
       label:
         zh: "端口"
         en: "Port"
