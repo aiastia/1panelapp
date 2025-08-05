@@ -1,0 +1,19 @@
+name: metatube
+type: tool
+tags:
+  - 媒体
+title: MetaTube 视频元数据聚合
+description: 自动抓取并补全影片信息的小站服务
+additionalProperties:
+  key: metatube
+  name: metatube
+  tags:
+    - Tool
+  shortDescZh: "MetaTube 影音信息聚合服務"
+  shortDescEn: "MetaTube media metadata aggregator"
+  type: api
+  crossVersionUpdate: true
+  website: "https://github.com/metatube-community/metatube-server"
+  architectures:
+    - amd64
+    - arm64

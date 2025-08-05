@@ -1,0 +1,10 @@
+version: "3.8"
+services:
+  metatube:
+    container_name: ${CONTAINER_NAME}
+    image: ghcr.io/metatube-community/metatube-server:latest
+    ports:
+      - ${PANEL_APP_PORT_HTTP}:8080
+    restart: always
+    labels:
+      createdBy: "Apps"
