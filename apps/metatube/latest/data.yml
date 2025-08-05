@@ -2,7 +2,6 @@ additionalProperties:
   formFields:
     - envKey: PANEL_APP_PORT_HTTP
       label: 端口
-      type: number
       rule: paramPort
       type: number
       required: true
