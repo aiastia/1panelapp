@@ -1,0 +1,13 @@
+version: "3.8"
+services:
+  metatube:
+    image: ghcr.io/metatube-community/metatube-server:latest
+    container_name: ${CONTAINER_NAME}
+    restart: always
+    ports:
+      - "${PANEL_APP_PORT_HTTP}:8080"
+    volumes:
+      - "./config:/config"
+    environment:
+      - TZ=${TIMEZONE}
+    command: ["-dsn", "/config/metatube.db"]
