@@ -1,0 +1,28 @@
+name: "ALS - Another Looking-glass Server"
+tags:
+  - network
+  - speedtest
+title: "ALS - 另一个 Looking-glass 服务器"
+description: "一个轻量的网络测速与诊断面板，支持 HTTP 下载测速、Speedtest.net、Ping、iPerf3 等功能。"
+
+additionalProperties:
+  key: lookingglass
+  name: "ALS Looking Glass"
+  tags:
+    - network
+    - speedtest
+  shortDescZh: "轻量的网络测速与诊断面板"
+  shortDescEn: "Lightweight network speed test and diagnostic panel"
+  description:
+    en: "A lightweight network speed test and diagnostic panel supporting HTTP download, Speedtest.net, Ping, and iPerf3."
+    ja: "HTTPダウンロード、Speedtest.net、Ping、iPerf3をサポートする軽量ネットワーク速度テストと診断パネル。"
+    zh: "一个轻量的网络测速与诊断面板，支持 HTTP 下载测速、Speedtest.net、Ping、iPerf3 等功能。"
+  type: app
+  crossVersionUpdate: true
+  limit: 1
+  website: "https://github.com/wikihost-opensource/looking-glass-server"
+  github: "https://github.com/wikihost-opensource/looking-glass-server"
+  document: "https://github.com/wikihost-opensource/looking-glass-server#readme"
+  architectures:
+    - amd64
+    - arm64

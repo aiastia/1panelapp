@@ -1,0 +1,126 @@
+additionalProperties:
+  formFields:
+    - default: "0.0.0.0"
+      envKey: "LISTEN_IP"
+      labelEn: "Listen IP"
+      labelZh: "监听IP"
+      type: text
+      required: true
+
+    - default: "80"
+      envKey: "PANEL_APP_PORT_HTTP"
+      labelEn: "HTTP Port"
+      labelZh: "HTTP端口"
+      type: number
+      required: true
+      rule: paramPort
+
+    - default: "1MB 10MB 100MB 1GB"
+      envKey: "SPEEDTEST_FILE_LIST"
+      labelEn: "Speedtest File List"
+      labelZh: "测速文件列表"
+      type: text
+
+    - default: ""
+      envKey: "LOCATION"
+      labelEn: "Server Location"
+      labelZh: "服务器位置"
+      type: text
+
+    - default: ""
+      envKey: "PUBLIC_IPV4"
+      labelEn: "Public IPv4"
+      labelZh: "公网IPv4"
+      type: text
+
+    - default: ""
+      envKey: "PUBLIC_IPV6"
+      labelEn: "Public IPv6"
+      labelZh: "公网IPv6"
+      type: text
+
+    - default: "true"
+      envKey: "DISPLAY_TRAFFIC"
+      labelEn: "Display Traffic"
+      labelZh: "显示实时流量"
+      type: select
+      values:
+        - label: "启用"
+          value: "true"
+        - label: "禁用"
+          value: "false"
+
+    - default: "true"
+      envKey: "ENABLE_SPEEDTEST"
+      labelEn: "Enable Speedtest"
+      labelZh: "启用测速"
+      type: select
+      values:
+        - label: "启用"
+          value: "true"
+        - label: "禁用"
+          value: "false"
+
+    - default: "true"
+      envKey: "UTILITIES_PING"
+      labelEn: "Enable Ping"
+      labelZh: "启用Ping"
+      type: select
+      values:
+        - label: "启用"
+          value: "true"
+        - label: "禁用"
+          value: "false"
+
+    - default: "true"
+      envKey: "UTILITIES_SPEEDTESTDOTNET"
+      labelEn: "Enable Speedtest.net"
+      labelZh: "启用Speedtest.net"
+      type: select
+      values:
+        - label: "启用"
+          value: "true"
+        - label: "禁用"
+          value: "false"
+
+    - default: "true"
+      envKey: "UTILITIES_FAKESHELL"
+      labelEn: "Enable Fake Shell"
+      labelZh: "启用假Shell"
+      type: select
+      values:
+        - label: "启用"
+          value: "true"
+        - label: "禁用"
+          value: "false"
+
+    - default: "true"
+      envKey: "UTILITIES_IPERF3"
+      labelEn: "Enable iPerf3"
+      labelZh: "启用iPerf3"
+      type: select
+      values:
+        - label: "启用"
+          value: "true"
+        - label: "禁用"
+          value: "false"
+
+    - default: "30000"
+      envKey: "PANEL_APP_PORT_IPERF3_MIN"
+      labelEn: "iPerf3 Port Min"
+      labelZh: "iPerf3端口起始"
+      type: number
+      rule: paramPort
+
+    - default: "31000"
+      envKey: "PANEL_APP_PORT_IPERF3_MAX"
+      labelEn: "iPerf3 Port Max"
+      labelZh: "iPerf3端口结束"
+      type: number
+      rule: paramPort
+
+    - default: ""
+      envKey: "SPONSOR_MESSAGE"
+      labelEn: "Sponsor Message"
+      labelZh: "赞助信息"
+      type: text
