@@ -1,3 +1,4 @@
+additionalProperties:
 formFields:
   - default: "23333"
     envKey: PANEL_APP_PORT_HTTP
