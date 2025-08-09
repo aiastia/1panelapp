@@ -6,7 +6,8 @@ services:
     restart: always
     ports:
       - "${PANEL_APP_PORT_HTTP}:1080"   # 使用参数化端口 [^4]
-
+    environment:
+      - WARP_SLEEP=${WARP_SLEEP:-2}  # 使用参数化环境变量 [^4]
     cap_add:
       - NET_ADMIN
     sysctls:
