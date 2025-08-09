@@ -17,5 +17,3 @@ services:
       - ./data:/var/lib/cloudflare-warp
     labels:
       createdBy: "Apps"                # 必须包含的标签 [^4]
-    networks:
-      - 1panel-network
