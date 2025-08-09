@@ -2,6 +2,8 @@ additionalProperties:
   formFields:
     - default: "23333"
       envKey: PANEL_APP_PORT_HTTP
+      type: number
+      rule: paramPort
       label: 
         en: Port
         zh: 服务端口
