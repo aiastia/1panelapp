@@ -1,0 +1,22 @@
+version: '3'
+services:
+  warp:
+    image: caomingjun/warp
+    container_name: ${CONTAINER_NAME}  # 固定写法 [^4]
+    restart: always
+    ports:
+      - "${PANEL_APP_PORT_HTTP}:1080"   # 使用参数化端口 [^4]
+    environment:
+      - WARP_SLEEP=${WARP_SLEEP}
+      - WARP_LICENSE_KEY=${WARP_LICENSE_KEY}
+    cap_add:
+      - NET_ADMIN
+    sysctls:
+      - net.ipv6.conf.all.disable_ipv6=0
+      - net.ipv4.conf.all.src_valid_mark=1
+    volumes:
+      - ./data:/var/lib/cloudflare-warp
+    labels:
+      createdBy: "Apps"                # 必须包含的标签 [^4]
+    networks:
+      - 1panel-network

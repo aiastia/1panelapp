@@ -1,0 +1,14 @@
+additionalProperties:
+  key: warps5
+  name: warps5
+  tags:                # 应用标签 [^6]
+    - Tool
+  description: 
+    en: Cloudflare WARP client
+    zh: Cloudflare 的 VPN 网络工具
+  type: tool           # 应用类型 [^6]
+  crossVersionUpdate: true
+  website: https://developers.cloudflare.com/warp-client/
+  architectures:               # 支持的架构
+    - amd64
+    - arm64

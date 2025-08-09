@@ -1,0 +1,26 @@
+formFields:
+  - default: "23333"
+    envKey: PANEL_APP_PORT_HTTP
+    label: 
+      en: Port
+      zh: 服务端口
+    required: true
+    rule: paramPort    # 强制端口校验 [^4]
+
+  - default: "2"
+    envKey: WARP_SLEEP
+    label: 
+      en: Start delay
+      zh: 启动延迟(秒)
+    required: true
+    type: number
+
+  - envKey: WARP_LICENSE_KEY
+    label: 
+      en: License Key
+      zh: 许可证密钥
+    required: false    # 可选参数 [^3]
+    type: password
+    description: 
+      en: "If you have a license key, please enter it here. If not, leave it blank."
+      zh: "如果您有许可证密钥，请在此输入。如果没有，请留空。"
