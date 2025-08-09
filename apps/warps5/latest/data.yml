@@ -16,13 +16,3 @@ additionalProperties:
         zh: 启动延迟(秒)
       required: true
       type: number
-
-    - envKey: WARP_LICENSE_KEY
-      label: 
-        en: License Key
-        zh: 许可证密钥
-      required: false    # 可选参数 [^3]
-      type: password
-      description: 
-        en: "If you have a license key, please enter it here. If not, leave it blank."
-        zh: "如果您有许可证密钥，请在此输入。如果没有，请留空。"

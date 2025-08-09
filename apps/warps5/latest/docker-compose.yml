@@ -7,8 +7,7 @@ services:
     ports:
       - "${PANEL_APP_PORT_HTTP}:1080"   # 使用参数化端口 [^4]
     environment:
-      - WARP_SLEEP=${WARP_SLEEP}
-      - WARP_LICENSE_KEY=${WARP_LICENSE_KEY}
+      - WARP_SLEEP=${WARP_SLEEP}‘
     cap_add:
       - NET_ADMIN
     sysctls:
