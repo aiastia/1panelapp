@@ -37,7 +37,7 @@ additionalProperties:
       type: number
       rule: paramPort
 
-    - envKey: "Web_OPEN_SSL"
+    - envKey: "WEB_OPEN_SSL"
       labelZh: "启用SSL"
       type: boolean
       default: false
@@ -48,6 +48,7 @@ additionalProperties:
       default: "nps_public_2023"
       type: password
       required: true
+      
     - envKey: "AUTH_KEY"
       labelZh: "认证密钥"
       default: "ghashgawrehawerh"
@@ -62,10 +63,9 @@ additionalProperties:
       default: "joU1jVZrdK59AOUX"
       type: password
       required: true
-      defescription:
+      description:
         zh: "获取服务端authKey时的aes加密密钥，16位"
         en: "AES encryption key for obtaining server authKey, 16 characters"
-
 
     - envKey: "WEB_USERNAME"
       labelZh: "管理员账号"
@@ -108,4 +108,248 @@ additionalProperties:
       type: text
       description:
         zh: "Web管理端口使用的SSL密钥文件路径"
-        en: "Path to the SSL key file for the web management port"   
+        en: "Path to the SSL key file for the web management port"
+        
+    # 高级配置
+    - envKey: "WEB_IP"
+      labelZh: "Web绑定IP"
+      default: "0.0.0.0"
+      type: text
+      required: false
+      description:
+        zh: "Web管理界面绑定的IP地址"
+        en: "IP address bound to the web management interface"
+        
+    - envKey: "WEB_BASE_URL"
+      labelZh: "Web基础URL"
+      default: ""
+      type: text
+      required: false
+      description:
+        zh: "Web管理界面的基础URL路径"
+        en: "Base URL path for the web management interface"
+        
+    - envKey: "BRIDGE_TYPE"
+      labelZh: "桥接类型"
+      default: "tcp"
+      type: select
+      values:
+        - label: "TCP"
+          value: "tcp"
+        - label: "UDP"
+          value: "udp"
+      required: false
+      
+    - envKey: "BRIDGE_IP"
+      labelZh: "桥接IP"
+      default: "0.0.0.0"
+      type: text
+      required: false
+      description:
+        zh: "桥接服务绑定的IP地址"
+        en: "IP address bound to the bridge service"
+        
+    - envKey: "FLOW_STORE_INTERVAL"
+      labelZh: "流量存储间隔(分钟)"
+      default: "1"
+      type: number
+      required: false
+      description:
+        zh: "流量数据持久化存储的时间间隔(分钟)"
+        en: "Time interval (minutes) for traffic data persistence"
+        
+    - envKey: "LOG_LEVEL"
+      labelZh: "日志级别"
+      default: "7"
+      type: select
+      values:
+        - label: "Emergency"
+          value: "0"
+        - label: "Alert"
+          value: "1"
+        - label: "Critical"
+          value: "2"
+        - label: "Error"
+          value: "3"
+        - label: "Warning"
+          value: "4"
+        - label: "Notice"
+          value: "5"
+        - label: "Informational"
+          value: "6"
+        - label: "Debug"
+          value: "7"
+      required: false
+      description:
+        zh: "日志级别，0-7，级别越高日志越详细"
+        en: "Log level, 0-7, higher level means more detailed logs"
+        
+    # 用户管理配置
+    - envKey: "ALLOW_USER_LOGIN"
+      labelZh: "允许用户登录"
+      type: boolean
+      default: true
+      
+    - envKey: "ALLOW_USER_REGISTER"
+      labelZh: "允许用户注册"
+      type: boolean
+      default: false
+      
+    - envKey: "ALLOW_USER_CHANGE_USERNAME"
+      labelZh: "允许修改用户名"
+      type: boolean
+      default: false
+      
+    # 功能限制配置
+    - envKey: "ALLOW_FLOW_LIMIT"
+      labelZh: "允许流量限制"
+      type: boolean
+      default: true
+      
+    - envKey: "ALLOW_RATE_LIMIT"
+      labelZh: "允许速率限制"
+      type: boolean
+      default: true
+      
+    - envKey: "ALLOW_TUNNEL_NUM_LIMIT"
+      labelZh: "允许隧道数量限制"
+      type: boolean
+      default: true
+      
+    - envKey: "ALLOW_LOCAL_PROXY"
+      labelZh: "允许本地代理"
+      type: boolean
+      default: true
+      
+    - envKey: "ALLOW_CONNECTION_NUM_LIMIT"
+      labelZh: "允许连接数限制"
+      type: boolean
+      default: true
+      
+    - envKey: "ALLOW_MULTI_IP"
+      labelZh: "允许多IP"
+      type: boolean
+      default: false
+      
+    - envKey: "SYSTEM_INFO_DISPLAY"
+      labelZh: "显示系统信息"
+      type: boolean
+      default: true
+      
+    # 缓存配置
+    - envKey: "HTTP_CACHE"
+      labelZh: "启用HTTP缓存"
+      type: boolean
+      default: true
+      
+    - envKey: "HTTP_CACHE_LENGTH"
+      labelZh: "HTTP缓存长度"
+      default: "100"
+      type: number
+      required: false
+      description:
+        zh: "HTTP缓存的最大长度"
+        en: "Maximum length of HTTP cache"
+        
+    # NPC客户端配置
+    - envKey: "NPC_SERVER_ADDR"
+      labelZh: "NPC服务器地址"
+      default: "127.0.0.1"
+      type: text
+      required: false
+      description:
+        zh: "NPC客户端连接的服务器地址"
+        en: "Server address for NPC client connection"
+        
+    - envKey: "NPC_CONN_TYPE"
+      labelZh: "NPC连接类型"
+      default: "tcp"
+      type: select
+      values:
+        - label: "TCP"
+          value: "tcp"
+        - label: "UDP"
+          value: "udp"
+      required: false
+      
+    - envKey: "NPC_AUTO_RECONNECTION"
+      labelZh: "NPC自动重连"
+      type: boolean
+      default: true
+      
+    - envKey: "NPC_CRYPT"
+      labelZh: "NPC加密"
+      type: boolean
+      default: true
+      
+    - envKey: "NPC_COMPRESS"
+      labelZh: "NPC压缩"
+      type: boolean
+      default: true
+      
+    - envKey: "NPC_REMARK"
+      labelZh: "NPC备注"
+      default: "nps"
+      type: text
+      required: false
+      
+    - envKey: "NPC_WEB_ADMIN_MODE"
+      labelZh: "NPC Web管理模式"
+      default: "https"
+      type: select
+      values:
+        - label: "HTTP"
+          value: "http"
+        - label: "HTTPS"
+          value: "https"
+      required: false
+      
+    - envKey: "NPC_WEB_FILE_MODE"
+      labelZh: "NPC Web文件模式"
+      default: "http"
+      type: select
+      values:
+        - label: "HTTP"
+          value: "http"
+        - label: "HTTPS"
+          value: "https"
+      required: false
+      
+    - envKey: "NPC_FILE_MODE"
+      labelZh: "NPC文件模式"
+      default: "file"
+      type: select
+      values:
+        - label: "文件"
+          value: "file"
+        - label: "其他"
+          value: "other"
+      required: false
+      
+    - envKey: "NPC_FILE_SERVER_PORT"
+      labelZh: "NPC文件服务端口"
+      default: "8081"
+      type: number
+      required: false
+      
+    - envKey: "NPC_FILE_LOCAL_PATH"
+      labelZh: "NPC文件本地路径"
+      default: "/file/"
+      type: text
+      required: false
+      
+    - envKey: "NPC_FILE_STRIP_PRE"
+      labelZh: "NPC文件路径前缀"
+      default: "/"
+      type: text
+      required: false
+      
+    # 时区设置
+    - envKey: "TZ"
+      labelZh: "时区"
+      default: "Asia/Shanghai"
+      type: text
+      required: false
+      description:
+        zh: "容器使用的时区"
+        en: "Timezone used by the container"
