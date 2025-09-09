@@ -39,8 +39,13 @@ additionalProperties:
 
     - envKey: "WEB_OPEN_SSL"
       labelZh: "启用SSL"
-      type: boolean
-      default: false
+      type: select
+      values:
+        - label: "启用"
+          value: "true"
+        - label: "禁用"
+          value: "false"
+      default: "false"
 
     # 安全认证
     - envKey: "PUBLIC_VKEY"
@@ -187,60 +192,115 @@ additionalProperties:
     # 用户管理配置
     - envKey: "ALLOW_USER_LOGIN"
       labelZh: "允许用户登录"
-      type: boolean
-      default: true
+      type: select
+      values:
+        - label: "允许"
+          value: "true"
+        - label: "禁止"
+          value: "false"
+      default: "true"
       
     - envKey: "ALLOW_USER_REGISTER"
       labelZh: "允许用户注册"
-      type: boolean
-      default: false
+      type: select
+      values:
+        - label: "允许"
+          value: "true"
+        - label: "禁止"
+          value: "false"
+      default: "false"
       
     - envKey: "ALLOW_USER_CHANGE_USERNAME"
       labelZh: "允许修改用户名"
-      type: boolean
-      default: false
+      type: select
+      values:
+        - label: "允许"
+          value: "true"
+        - label: "禁止"
+          value: "false"
+      default: "false"
       
     # 功能限制配置
     - envKey: "ALLOW_FLOW_LIMIT"
       labelZh: "允许流量限制"
-      type: boolean
-      default: true
+      type: select
+      values:
+        - label: "允许"
+          value: "true"
+        - label: "禁止"
+          value: "false"
+      default: "true"
       
     - envKey: "ALLOW_RATE_LIMIT"
       labelZh: "允许速率限制"
-      type: boolean
-      default: true
+      type: select
+      values:
+        - label: "允许"
+          value: "true"
+        - label: "禁止"
+          value: "false"
+      default: "true"
       
     - envKey: "ALLOW_TUNNEL_NUM_LIMIT"
       labelZh: "允许隧道数量限制"
-      type: boolean
-      default: true
+      type: select
+      values:
+        - label: "允许"
+          value: "true"
+        - label: "禁止"
+          value: "false"
+      default: "true"
       
     - envKey: "ALLOW_LOCAL_PROXY"
       labelZh: "允许本地代理"
-      type: boolean
-      default: true
+      type: select
+      values:
+        - label: "允许"
+          value: "true"
+        - label: "禁止"
+          value: "false"
+      default: "true"
       
     - envKey: "ALLOW_CONNECTION_NUM_LIMIT"
       labelZh: "允许连接数限制"
-      type: boolean
-      default: true
+      type: select
+      values:
+        - label: "允许"
+          value: "true"
+        - label: "禁止"
+          value: "false"
+      default: "true"
       
     - envKey: "ALLOW_MULTI_IP"
       labelZh: "允许多IP"
-      type: boolean
-      default: false
+      type: select
+      values:
+        - label: "允许"
+          value: "true"
+        - label: "禁止"
+          value: "false"
+      default: "false"
       
     - envKey: "SYSTEM_INFO_DISPLAY"
       labelZh: "显示系统信息"
-      type: boolean
-      default: true
+      type: select
+      values:
+        - label: "显示"
+          value: "true"
+        - label: "隐藏"
+          value: "false"
+      default: "true"
       
     # 缓存配置
     - envKey: "HTTP_CACHE"
       labelZh: "启用HTTP缓存"
-      type: boolean
-      default: true
+      type: select
+      values:
+        - label: "启用"
+          value: "true"
+        - label: "禁用"
+          value: "false"
+      default: "true"
       
     - envKey: "HTTP_CACHE_LENGTH"
       labelZh: "HTTP缓存长度"
@@ -274,18 +334,33 @@ additionalProperties:
       
     - envKey: "NPC_AUTO_RECONNECTION"
       labelZh: "NPC自动重连"
-      type: boolean
-      default: true
+      type: select
+      values:
+        - label: "启用"
+          value: "true"
+        - label: "禁用"
+          value: "false"
+      default: "true"
       
     - envKey: "NPC_CRYPT"
       labelZh: "NPC加密"
-      type: boolean
-      default: true
+      type: select
+      values:
+        - label: "启用"
+          value: "true"
+        - label: "禁用"
+          value: "false"
+      default: "true"
       
     - envKey: "NPC_COMPRESS"
       labelZh: "NPC压缩"
-      type: boolean
-      default: true
+      type: select
+      values:
+        - label: "启用"
+          value: "true"
+        - label: "禁用"
+          value: "false"
+      default: "true"
       
     - envKey: "NPC_REMARK"
       labelZh: "NPC备注"
