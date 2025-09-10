@@ -1,0 +1,161 @@
+additionalProperties:
+  formFields:
+    # 服务器连接配置
+    - envKey: "NPC_SERVER_ADDR"
+      labelZh: "NPS服务器地址"
+      default: "nps.yourdomain.com:8024"
+      type: text
+      required: true
+      description:
+        zh: "NPS服务器的地址和端口，格式：域名或IP:端口"
+        en: "NPS server address and port, format: domain or IP:port"
+        
+    - envKey: "PUBLIC_VKEY"
+      labelZh: "公共密钥"
+      default: "nps_public_2023"
+      type: password
+      required: true
+      description:
+        zh: "与NPS服务器匹配的公共密钥"
+        en: "Public key matching the NPS server"
+      
+    # 连接配置
+    - envKey: "NPC_CONN_TYPE"
+      labelZh: "连接类型"
+      default: "tcp"
+      type: select
+      values:
+        - label: "TCP"
+          value: "tcp"
+        - label: "UDP"
+          value: "udp"
+      required: false
+      
+    - envKey: "NPC_AUTO_RECONNECTION"
+      labelZh: "自动重连"
+      type: select
+      values:
+        - label: "启用"
+          value: "true"
+        - label: "禁用"
+          value: "false"
+      default: "true"
+      description:
+        zh: "当连接断开时是否自动重连"
+        en: "Whether to automatically reconnect when connection is lost"
+      
+    - envKey: "NPC_CRYPT"
+      labelZh: "启用加密"
+      type: select
+      values:
+        - label: "启用"
+          value: "true"
+        - label: "禁用"
+          value: "false"
+      default: "true"
+      
+    - envKey: "NPC_COMPRESS"
+      labelZh: "启用压缩"
+      type: select
+      values:
+        - label: "启用"
+          value: "true"
+        - label: "禁用"
+          value: "false"
+      default: "true"
+      
+    - envKey: "NPC_REMARK"
+      labelZh: "客户端备注"
+      default: "npc-client"
+      type: text
+      required: false
+      description:
+        zh: "在NPS服务器上显示的客户端备注名称"
+        en: "Client remark name displayed on NPS server"
+      
+    # Web服务配置
+    - envKey: "NPC_WEB_ADMIN_MODE"
+      labelZh: "Web管理模式"
+      default: "https"
+      type: select
+      values:
+        - label: "HTTP"
+          value: "http"
+        - label: "HTTPS"
+          value: "https"
+      required: false
+      
+    - envKey: "NPC_WEB_FILE_MODE"
+      labelZh: "Web文件模式"
+      default: "http"
+      type: select
+      values:
+        - label: "HTTP"
+          value: "http"
+        - label: "HTTPS"
+          value: "https"
+      required: false
+      
+    # 文件服务配置
+    - envKey: "NPC_FILE_MODE"
+      labelZh: "文件服务模式"
+      default: "file"
+      type: select
+      values:
+        - label: "文件模式"
+          value: "file"
+        - label: "其他模式"
+          value: "other"
+      required: false
+      
+    - envKey: "NPC_FILE_SERVER_PORT"
+      labelZh: "文件服务端口"
+      default: "8081"
+      type: number
+      required: false
+      
+    - envKey: "NPC_FILE_LOCAL_PATH"
+      labelZh: "文件本地路径"
+      default: "/file/"
+      type: text
+      required: false
+      
+    - envKey: "NPC_FILE_STRIP_PRE"
+      labelZh: "文件路径前缀"
+      default: "/"
+      type: text
+      required: false
+      
+    # 日志配置
+    - envKey: "LOG_LEVEL"
+      labelZh: "日志级别"
+      default: "7"
+      type: select
+      values:
+        - label: "Emergency"
+          value: "0"
+        - label: "Alert"
+          value: "1"
+        - label: "Critical"
+          value: "2"
+        - label: "Error"
+          value: "3"
+        - label: "Warning"
+          value: "4"
+        - label: "Notice"
+          value: "5"
+        - label: "Informational"
+          value: "6"
+        - label: "Debug"
+          value: "7"
+      required: false
+      
+    # 时区设置
+    - envKey: "TZ"
+      labelZh: "时区"
+      default: "Asia/Shanghai"
+      type: text
+      required: false
+      description:
+        zh: "容器使用的时区"
+        en: "Timezone used by the container"

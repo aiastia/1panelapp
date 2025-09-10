@@ -1,0 +1,33 @@
+version: '3.8'
+services:
+  npc:
+    image: aiastia/npc:latest
+    container_name: ${CONTAINER_NAME}
+    hostname: npc-client
+    restart: unless-stopped
+    network_mode: host
+    environment:
+      # 服务器连接配置
+      - NPC_SERVER_ADDR=${NPC_SERVER_ADDR}
+      - PUBLIC_VKEY=${PUBLIC_VKEY}
+      - NPC_CONN_TYPE=${NPC_CONN_TYPE:-tcp}
+      - NPC_AUTO_RECONNECTION=${NPC_AUTO_RECONNECTION:-true}
+      - NPC_CRYPT=${NPC_CRYPT:-true}
+      - NPC_COMPRESS=${NPC_COMPRESS:-true}
+      - NPC_REMARK=${NPC_REMARK:-npc-client}
+      
+      # Web服务配置
+      - NPC_WEB_ADMIN_MODE=${NPC_WEB_ADMIN_MODE:-https}
+      - NPC_WEB_FILE_MODE=${NPC_WEB_FILE_MODE:-http}
+      
+      # 文件服务配置
+      - NPC_FILE_MODE=${NPC_FILE_MODE:-file}
+      - NPC_FILE_SERVER_PORT=${NPC_FILE_SERVER_PORT:-8081}
+      - NPC_FILE_LOCAL_PATH=${NPC_FILE_LOCAL_PATH:-/file/}
+      - NPC_FILE_STRIP_PRE=${NPC_FILE_STRIP_PRE:-/}
+      
+      # 日志配置
+      - LOG_LEVEL=${LOG_LEVEL:-7}
+      
+      # 时区设置
+      - TZ=${TZ:-Asia/Shanghai}

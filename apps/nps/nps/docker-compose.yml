@@ -5,13 +5,13 @@ services:
     container_name: ${CONTAINER_NAME}
     hostname: nps-server
     restart: unless-stopped
-    network_mode: host  # 必须使用host模式
+    network_mode: host
     volumes:
-      - ./conf:/conf                  # 配置文件目录
-      - ${WEB_KEY_FILE}:/conf/server.key  # SSL证书私钥
-      - ${WEB_CERT_FILE}:/conf/server.pem  # SSL证书
+      - ./conf:/conf
+      - ${WEB_KEY_FILE}:/conf/server.key
+      - ${WEB_CERT_FILE}:/conf/server.pem
     environment:
-      # 核心参数 (对应config.yml表单字段)
+      # 核心参数
       - RUN_MODE=${RUN_MODE:-dev}
       - HTTP_PROXY_PORT=${PANEL_APP_PORT_HTTP_PROXY_PORT:-8880}
       - HTTPS_PROXY_PORT=${PANEL_APP_PORT_HTTPS_PROXY_PORT:-4443}
@@ -49,20 +49,6 @@ services:
       - SYSTEM_INFO_DISPLAY=${SYSTEM_INFO_DISPLAY:-true}
       - HTTP_CACHE=${HTTP_CACHE:-true}
       - HTTP_CACHE_LENGTH=${HTTP_CACHE_LENGTH:-100}
-      
-      # NPC客户端配置
-      - NPC_SERVER_ADDR=${NPC_SERVER_ADDR:-127.0.0.1}
-      - NPC_CONN_TYPE=${NPC_CONN_TYPE:-tcp}
-      - NPC_AUTO_RECONNECTION=${NPC_AUTO_RECONNECTION:-true}
-      - NPC_CRYPT=${NPC_CRYPT:-true}
-      - NPC_COMPRESS=${NPC_COMPRESS:-true}
-      - NPC_REMARK=${NPC_REMARK:-nps}
-      - NPC_WEB_ADMIN_MODE=${NPC_WEB_ADMIN_MODE:-https}
-      - NPC_WEB_FILE_MODE=${NPC_WEB_FILE_MODE:-http}
-      - NPC_FILE_MODE=${NPC_FILE_MODE:-file}
-      - NPC_FILE_SERVER_PORT=${NPC_FILE_SERVER_PORT:-8081}
-      - NPC_FILE_LOCAL_PATH=${NPC_FILE_LOCAL_PATH:-/file/}
-      - NPC_FILE_STRIP_PRE=${NPC_FILE_STRIP_PRE:-/}
       
       # 时区设置
       - TZ=${TZ:-Asia/Shanghai}
