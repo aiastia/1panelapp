@@ -1,7 +1,7 @@
 version: '3.8'
 services:
   nps:
-    image: aiastia/npc:latest
+    image: aiastia/nps:latest
     container_name: ${CONTAINER_NAME}
     hostname: nps-server
     restart: unless-stopped
