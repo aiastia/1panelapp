@@ -1,0 +1,231 @@
+additionalProperties:
+  formFields:
+    # 基础配置
+    - envKey: "NPSC_NAME"
+      labelZh: "客户端名称"
+      default: "npsc_client"
+      type: text
+      required: true
+      description:
+        zh: "客户端在服务器上显示的名称"
+        en: "Client name displayed on server"
+    
+    # 服务器连接配置
+    - envKey: "NPSC_SERVER_ADDR"
+      labelZh: "NPS服务器地址"
+      default: "nps.yourdomain.com:8024"
+      type: text
+      required: true
+      description:
+        zh: "NPS服务器的地址和端口，格式：域名或IP:端口"
+        en: "NPS server address and port, format: domain or IP:port"
+        
+    - envKey: "NPSC_PUBLIC_VKEY"
+      labelZh: "公共密钥"
+      default: "nps_public_2023"
+      type: password
+      required: true
+      description:
+        zh: "与NPS服务器匹配的公共密钥"
+        en: "Public key matching the NPS server"
+      
+    # 高级连接配置
+    - envKey: "NPSC_MAX_CONN"
+      labelZh: "最大连接数"
+      default: "1000"
+      type: number
+      required: false
+      description:
+        zh: "允许的最大并发连接数"
+        en: "Maximum number of concurrent connections allowed"
+
+    - envKey: "NPSC_FLOW_LIMIT"
+      labelZh: "流量限制"
+      default: "1000"
+      type: number
+      required: false
+      description:
+        zh: "客户端流量限制(KB)"
+        en: "Client flow limit (KB)"
+
+    - envKey: "NPSC_RATE_LIMIT"
+      labelZh: "速率限制"
+      default: "1000"
+      type: number
+      required: false
+      description:
+        zh: "客户端速率限制(KB/s)"
+        en: "Client rate limit (KB/s)"
+
+    - envKey: "NPSC_POOL_COUNT"
+      labelZh: "连接池数量"
+      default: "5"
+      type: number
+      required: false
+      description:
+        zh: "客户端连接池数量"
+        en: "Number of connection pools"
+
+    # 代理服务配置
+    - envKey: "NPSC_PROXY_MODE"
+      labelZh: "代理模式"
+      default: "tcp"
+      type: select
+      values:
+        - label: "TCP"
+          value: "tcp"
+        - label: "UDP"
+          value: "udp"
+        - label: "HTTP"
+          value: "http"
+        - label: "HTTPS"
+          value: "https"
+      required: true
+      description:
+        zh: "选择代理服务的模式"
+        en: "Select the proxy service mode"
+
+    - envKey: "NPSC_LOCAL_PORT"
+      labelZh: "本地端口"
+      default: "8080"
+      type: number
+      required: true
+      description:
+        zh: "本地代理服务监听的端口"
+        en: "Local port for proxy service"
+
+    - envKey: "NPSC_TARGET_ADDR"
+      labelZh: "目标地址"
+      default: "127.0.0.1:80"
+      type: text
+      required: true
+      description:
+        zh: "需要代理的目标地址和端口"
+        en: "Target address and port to proxy"
+
+    - envKey: "NPSC_PROXY_TIMEOUT"
+      labelZh: "代理超时时间"
+      default: "60"
+      type: number
+      required: false
+      description:
+        zh: "代理连接超时时间(秒)"
+        en: "Proxy connection timeout (seconds)"
+
+    - envKey: "NPSC_TARGET_PROXY"
+      labelZh: "目标代理"
+      default: ""
+      type: text
+      required: false
+      description:
+        zh: "访问目标时使用的代理（例如：socks5://127.0.0.1:1080)"
+        en: "Proxy used to access target (e.g., socks5://127.0.0.1:1080)"
+
+    # 安全配置
+    - envKey: "NPSC_TLS_ENABLE"
+      labelZh: "启用TLS"
+      type: select
+      values:
+        - label: "启用"
+          value: "true"
+        - label: "禁用"
+          value: "false"
+      default: "false"
+      description:
+        zh: "是否启用TLS加密传输"
+        en: "Enable TLS encrypted transmission"
+
+    - envKey: "NPSC_TLS_CERT_FILE"
+      labelZh: "TLS证书文件"
+      default: "/cert/cert.pem"
+      type: text
+      required: false
+      description:
+        zh: "TLS证书文件路径"
+        en: "TLS certificate file path"
+
+    - envKey: "NPSC_TLS_KEY_FILE"
+      labelZh: "TLS密钥文件"
+      default: "/cert/key.pem"
+      type: text
+      required: false
+      description:
+        zh: "TLS密钥文件路径"
+        en: "TLS key file path"
+
+    # 连接配置
+    - envKey: "NPSC_AUTO_RECONNECTION"
+      labelZh: "自动重连"
+      type: select
+      values:
+        - label: "启用"
+          value: "true"
+        - label: "禁用"
+          value: "false"
+      default: "true"
+      description:
+        zh: "当连接断开时是否自动重连"
+        en: "Whether to automatically reconnect when connection is lost"
+      
+    - envKey: "NPSC_CRYPT"
+      labelZh: "启用加密"
+      type: select
+      values:
+        - label: "启用"
+          value: "true"
+        - label: "禁用"
+          value: "false"
+      default: "true"
+      
+    - envKey: "NPSC_COMPRESS"
+      labelZh: "启用压缩"
+      type: select
+      values:
+        - label: "启用"
+          value: "true"
+        - label: "禁用"
+          value: "false"
+      default: "true"
+      
+    - envKey: "NPSC_REMARK"
+      labelZh: "客户端备注"
+      default: "npsc-client"
+      type: text
+      required: false
+      description:
+        zh: "在NPS服务器上显示的客户端备注名称"
+        en: "Client remark name displayed on NPS server"
+
+    # 日志配置
+    - envKey: "LOG_LEVEL"
+      labelZh: "日志级别"
+      default: "7"
+      type: select
+      values:
+        - label: "Emergency"
+          value: "0"
+        - label: "Alert"
+          value: "1"
+        - label: "Critical"
+          value: "2"
+        - label: "Error"
+          value: "3"
+        - label: "Warning"
+          value: "4"
+        - label: "Notice"
+          value: "5"
+        - label: "Informational"
+          value: "6"
+        - label: "Debug"
+          value: "7"
+      required: false
+      
+    # 时区设置
+    - envKey: "TZ"
+      labelZh: "时区"
+      default: "Asia/Shanghai"
+      type: text
+      required: false
+      description:
+        zh: "容器使用的时区"
+        en: "Timezone used by the container"

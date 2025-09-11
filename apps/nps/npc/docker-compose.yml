@@ -6,15 +6,36 @@ services:
     hostname: npc-client
     restart: unless-stopped
     network_mode: host
+    volumes:
+      - ./conf:/conf
+      - ./cert:/cert
+      - ./logs:/var/log/npc
     environment:
+      # 基础配置
+      - NPC_CONFIG_FILE=/conf/npc.conf
+      
       # 服务器连接配置
-      - NPC_SERVER_ADDR=${NPC_SERVER_ADDR}
-      - PUBLIC_VKEY=${PUBLIC_VKEY}
+      - NPC_SERVER_ADDR=${PANEL_APP_PORT_SERVER_ADDR}
+      - PUBLIC_VKEY=${PANEL_APP_PORT_PUBLIC_VKEY}
       - NPC_CONN_TYPE=${NPC_CONN_TYPE:-tcp}
       - NPC_AUTO_RECONNECTION=${NPC_AUTO_RECONNECTION:-true}
       - NPC_CRYPT=${NPC_CRYPT:-true}
       - NPC_COMPRESS=${NPC_COMPRESS:-true}
       - NPC_REMARK=${NPC_REMARK:-npc-client}
+      
+      # 性能配置
+      - NPC_MAX_CONN=${NPC_MAX_CONN:-1000}
+      - NPC_MAX_TUNNEL_NUM=${NPC_MAX_TUNNEL_NUM:-10}
+      - NPC_FLOW_LIMIT=${NPC_FLOW_LIMIT:-1000}
+      - NPC_RATE_LIMIT=${NPC_RATE_LIMIT:-1000}
+      - NPC_POOL_COUNT=${NPC_POOL_COUNT:-5}
+      - NPC_RECONNECT_INTERVAL=${NPC_RECONNECT_INTERVAL:-30}
+      
+      # 安全配置
+      - NPC_TLS_ENABLE=${NPC_TLS_ENABLE:-false}
+      - NPC_TLS_CERT_FILE=${NPC_TLS_CERT_FILE:-/cert/client.pem}
+      - NPC_TLS_KEY_FILE=${NPC_TLS_KEY_FILE:-/cert/client.key}
+      - NPC_CA_FILE=${NPC_CA_FILE:-/cert/ca.pem}
       
       # Web服务配置
       - NPC_WEB_ADMIN_MODE=${NPC_WEB_ADMIN_MODE:-https}

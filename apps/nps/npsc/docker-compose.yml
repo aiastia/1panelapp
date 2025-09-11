@@ -1,0 +1,59 @@
+version: '3.8'
+
+services:
+  npsc:
+    image: ${IMAGE}
+    container_name: ${CONTAINER_NAME}
+    restart: unless-stopped
+    volumes:
+      - ./conf:/conf
+      - ./cert:/cert
+      - ./logs:/var/log/npsc
+    command:
+      # 基础配置
+      - -config=/conf/npsc.conf
+      
+      # 服务器连接配置
+      - -server=${PANEL_APP_PORT_SERVER_ADDR}
+      - -vkey=${PANEL_APP_PORT_PUBLIC_VKEY}
+      - -type=tcp
+      - -local_port=${NPSC_LOCAL_PORT}
+      - -target_addr=${NPSC_TARGET_ADDR}
+      - -auto_reconnection=${NPSC_AUTO_RECONNECTION:-true}
+      - -crypt=${NPSC_CRYPT:-true}
+      - -compress=${NPSC_COMPRESS:-true}
+      - -remark=${NPSC_REMARK:-npsc-client}
+      
+      # 性能配置
+      - -max_conn=${NPSC_MAX_CONN:-1000}
+      - -flow_limit=${NPSC_FLOW_LIMIT:-1000}
+      - -rate_limit=${NPSC_RATE_LIMIT:-1000}
+      - -pool_count=${NPSC_POOL_COUNT:-5}
+      - -reconnect_interval=${NPSC_RECONNECT_INTERVAL:-30}
+      - -proxy_timeout=${NPSC_PROXY_TIMEOUT:-60}
+      
+      # 代理配置
+      - -target_proxy=${NPSC_TARGET_PROXY}
+      - -proxy_protocol=${NPSC_PROXY_PROTOCOL:-}
+      - -proxy_timeout_type=${NPSC_PROXY_TIMEOUT_TYPE:-tcp}
+      - -http_host=${NPSC_HTTP_HOST:-}
+      
+      # 安全配置
+      - -tls_enable=${NPSC_TLS_ENABLE:-false}
+      - -tls_cert_file=${NPSC_TLS_CERT_FILE:-/cert/cert.pem}
+      - -tls_key_file=${NPSC_TLS_KEY_FILE:-/cert/key.pem}
+      - -ca_file=${NPSC_CA_FILE:-/cert/ca.pem}
+      
+      # 日志配置
+      - -log_level=${LOG_LEVEL:-7}
+      - -log_path=${NPSC_LOG_PATH:-/var/log/npsc}
+    ports:
+      - "${NPSC_LOCAL_PORT}:${NPSC_LOCAL_PORT}"
+    environment:
+      - TZ=${TZ:-Asia/Shanghai}
+    networks:
+      - npsc_net
+
+networks:
+  npsc_net:
+    driver: bridge
