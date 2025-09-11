@@ -1,4 +1,4 @@
-version: '3.8'
+
 services:
   nps:
     image: aiastia/nps:latest
@@ -7,7 +7,7 @@ services:
     restart: unless-stopped
     network_mode: host
     volumes:
-      - ./conf:/conf
+      - ./conf:/app/conf
       - ./cert:/cert
       - ./logs:/var/log/nps
       - ${WEB_KEY_FILE}:/conf/server.key
@@ -20,10 +20,10 @@ services:
       - HTTPS_PROXY_PORT=${PANEL_APP_PORT_HTTPS_PROXY_PORT}
       - BRIDGE_PORT=${PANEL_APP_PORT_BRIDGE_PORT}
       - WEB_PORT=${PANEL_APP_PORT_WEB_PORT}
-      - PUBLIC_VKEY=${PANEL_APP_PORT_PUBLIC_VKEY}
-      - WEB_USERNAME=${PANEL_APP_PORT_WEB_USERNAME}
-      - WEB_PASSWORD=${PANEL_APP_PORT_WEB_PASSWORD}
-      - WEB_HOST=${PANEL_APP_PORT_WEB_HOST}
+      - PUBLIC_VKEY=${PUBLIC_VKEY}
+      - WEB_USERNAME=${WEB_USERNAME}
+      - WEB_PASSWORD=${WEB_PASSWORD}
+      - WEB_HOST=${WEB_HOST}
       - ALLOW_PORTS=${ALLOW_PORTS:-9001-9009,10001,11000-12000}
       - AUTH_KEY=${AUTH_KEY}
       - AUTH_CRYPT_KEY=${AUTH_CRYPT_KEY}
