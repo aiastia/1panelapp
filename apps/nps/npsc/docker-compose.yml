@@ -2,7 +2,7 @@ version: '3.8'
 
 services:
   npsc:
-    image: ${IMAGE}
+    image: aiastia/npsc:latest
     container_name: ${CONTAINER_NAME}
     restart: unless-stopped
     volumes:
@@ -100,9 +100,4 @@ services:
       - "${NPSC_LOCAL_PORT}:${NPSC_LOCAL_PORT}"
     environment:
       - TZ=${TZ:-Asia/Shanghai}
-    networks:
-      - npsc_net
-
-networks:
-  npsc_net:
-    driver: bridge
+    network_mode: host
