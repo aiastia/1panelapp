@@ -101,7 +101,7 @@ additionalProperties:
 
     - envKey: "WEB_CERT_FILE"
       labelZh: "Web证书文件"
-      default: "./conf/server.pem"
+      default: "./cert/server.pem"
       type: text
       description:
         zh: "Web管理端口使用的SSL证书文件路径"
@@ -109,7 +109,7 @@ additionalProperties:
 
     - envKey: "WEB_KEY_FILE"
       labelZh: "Web密钥文件"
-      default: "./conf/server.key"
+      default: "./cert/server.key"
       type: text
       description:
         zh: "Web管理端口使用的SSL密钥文件路径"

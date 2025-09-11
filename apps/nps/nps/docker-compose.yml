@@ -10,8 +10,8 @@ services:
       - ./conf:/app/conf
       # - ${WEB_KEY_FILE}:/conf/server.key
       # - ${WEB_CERT_FILE}:/conf/server.pem
-      - ./cert/server.key:/app/conf/server.key
-      - ./cert/server.pem:/app/conf/server.pem
+      - ./cert/server.key:${WEB_KEY_FILE}
+      - ./cert/server.pem:${WEB_CERT_FILE}
     environment:
       # 核心参数
       - RUN_MODE=prod
@@ -29,8 +29,8 @@ services:
       
       # SSL配置
       - WEB_OPEN_SSL=${WEB_OPEN_SSL:-false}
-      # - WEB_CERT_FILE=${WEB_CERT_FILE:-conf/server.pem}
-      # - WEB_KEY_FILE=${WEB_KEY_FILE:-conf/server.key}
+      - WEB_CERT_FILE=${WEB_CERT_FILE:-cert/server.pem}
+      - WEB_KEY_FILE=${WEB_KEY_FILE:-cert/server.key}
       
       # 高级配置
       - WEB_IP=${WEB_IP:-0.0.0.0}
