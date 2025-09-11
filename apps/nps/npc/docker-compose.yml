@@ -32,9 +32,9 @@ services:
       
       # 安全配置
       - NPC_TLS_ENABLE=${NPC_TLS_ENABLE:-false}
-      - NPC_TLS_CERT_FILE=${NPC_TLS_CERT_FILE:-/cert/client.pem}
-      - NPC_TLS_KEY_FILE=${NPC_TLS_KEY_FILE:-/cert/client.key}
-      - NPC_CA_FILE=${NPC_CA_FILE:-/cert/ca.pem}
+      - NPC_TLS_CERT_FILE=${NPC_TLS_CERT_FILE:-/app/cert/client.pem}
+      - NPC_TLS_KEY_FILE=${NPC_TLS_KEY_FILE:-/app/cert/client.key}
+      # - NPC_CA_FILE=${NPC_CA_FILE:-/cert/ca.pem}
       
       # Web服务配置
       - NPC_WEB_ADMIN_MODE=${NPC_WEB_ADMIN_MODE:-https}

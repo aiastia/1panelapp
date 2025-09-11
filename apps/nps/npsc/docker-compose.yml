@@ -6,9 +6,8 @@ services:
     container_name: ${CONTAINER_NAME}
     restart: unless-stopped
     volumes:
-      - ./conf:/conf
-      - ./cert:/cert
-      - ./logs:/var/log/npsc
+      - ./conf:/app/conf
+      - ./cert:/app/cert
     command:
       # 基础配置
       - -server=${PANEL_APP_PORT_SERVER_ADDR}
@@ -48,9 +47,9 @@ services:
       - -crypt=${PANEL_APP_PORT_CRYPT:-true}
       - -compress=${PANEL_APP_PORT_COMPRESS:-true}
       - -tls_enable=${PANEL_APP_PORT_TLS_ENABLE:-false}
-      - -tls_cert_file=/cert/client.crt
-      - -tls_key_file=/cert/client.key
-      - -ca_file=/cert/ca.crt
+      - -tls_cert_file=/app/cert/client.crt
+      - -tls_key_file=/app/cert/client.key
+      # - -ca_file=/app/cert/ca.crt
       
       # 高级配置
       - -proxy_protocol=${PANEL_APP_PORT_PROXY_PROTOCOL:-false}
@@ -89,9 +88,9 @@ services:
       
       # 安全配置
       - -tls_enable=${NPSC_TLS_ENABLE:-false}
-      - -tls_cert_file=${NPSC_TLS_CERT_FILE:-/cert/cert.pem}
-      - -tls_key_file=${NPSC_TLS_KEY_FILE:-/cert/key.pem}
-      - -ca_file=${NPSC_CA_FILE:-/cert/ca.pem}
+      - -tls_cert_file=${NPSC_TLS_CERT_FILE:-/app/cert/cert.pem}
+      - -tls_key_file=${NPSC_TLS_KEY_FILE:-/app/cert/key.pem}
+      # - -ca_file=${NPSC_CA_FILE:-/cert/ca.pem}
       
       # 日志配置
       - -log_level=${LOG_LEVEL:-7}

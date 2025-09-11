@@ -197,7 +197,7 @@ additionalProperties:
 
     - envKey: "NPSC_TLS_CERT_FILE"
       labelZh: "TLS证书文件"
-      default: "/cert/cert.pem"
+      default: "/app/cert/cert.pem"
       type: text
       required: false
       description:
@@ -206,7 +206,7 @@ additionalProperties:
 
     - envKey: "NPSC_TLS_KEY_FILE"
       labelZh: "TLS密钥文件"
-      default: "/cert/key.pem"
+      default: "/app/cert/key.pem"
       type: text
       required: false
       description:
