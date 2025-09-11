@@ -23,7 +23,7 @@ additionalProperties:
     zh: 用于建立内网穿透隧道的轻量代理服务器
   type: tool
   crossVersionUpdate: true
-  limit: 1
+  limit: 3
   website: https://github.com/ehang-io/nps
   github: https://github.com/lihaixin/nps
   document: https://ehang-io.github.io/nps
