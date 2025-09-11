@@ -1,5 +1,65 @@
 additionalProperties:
   formFields:
+    # HTTP/HTTPS代理配置
+    - envKey: "PANEL_APP_PORT_HTTP_HOST"
+      labelZh: "HTTP主机"
+      type: text
+      required: false
+      description:
+        zh: "HTTP代理主机头"
+        en: "HTTP proxy host header"
+
+    - envKey: "PANEL_APP_PORT_HOST_HEADER"
+      labelZh: "主机头"
+      type: text
+      required: false
+      description:
+        zh: "自定义主机头"
+        en: "Custom host header"
+
+    # 隧道配置
+    - envKey: "PANEL_APP_PORT_TUNNEL_TYPE"
+      labelZh: "隧道类型"
+      type: select
+      values:
+        - label: "TCP"
+          value: "tcp"
+        - label: "UDP"
+          value: "udp"
+        - label: "HTTP"
+          value: "http"
+        - label: "HTTPS"
+          value: "https"
+      default: "tcp"
+      description:
+        zh: "隧道类型"
+        en: "Tunnel type"
+
+    - envKey: "PANEL_APP_PORT_TUNNEL_PORT"
+      labelZh: "隧道端口"
+      type: number
+      required: false
+      description:
+        zh: "隧道服务端口"
+        en: "Tunnel service port"
+
+    # UDP配置
+    - envKey: "PANEL_APP_PORT_UDP_PORT"
+      labelZh: "UDP端口"
+      type: number
+      required: false
+      description:
+        zh: "UDP服务端口"
+        en: "UDP service port"
+
+    - envKey: "PANEL_APP_PORT_UDP_TARGET"
+      labelZh: "UDP目标"
+      type: text
+      required: false
+      description:
+        zh: "UDP目标地址"
+        en: "UDP target address"
+
     # 基础配置
     - envKey: "NPSC_NAME"
       labelZh: "客户端名称"

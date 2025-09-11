@@ -11,12 +11,61 @@ services:
       - ./logs:/var/log/npsc
     command:
       # 基础配置
-      - -config=/conf/npsc.conf
-      
-      # 服务器连接配置
       - -server=${PANEL_APP_PORT_SERVER_ADDR}
       - -vkey=${PANEL_APP_PORT_PUBLIC_VKEY}
-      - -type=tcp
+      
+      # 代理配置
+      - -type=${PANEL_APP_PORT_PROXY_TYPE:-tcp}
+      - -local_port=${PANEL_APP_PORT_LOCAL_PORT}
+      - -target_addr=${PANEL_APP_PORT_TARGET_ADDR}
+      - -target_port=${PANEL_APP_PORT_TARGET_PORT}
+      
+      # HTTP/HTTPS 配置
+      - -http_host=${PANEL_APP_PORT_HTTP_HOST}
+      - -host_header=${PANEL_APP_PORT_HOST_HEADER}
+      - -http_username=${PANEL_APP_PORT_HTTP_USERNAME}
+      - -http_password=${PANEL_APP_PORT_HTTP_PASSWORD}
+      
+      # 隧道配置
+      - -tunnel_type=${PANEL_APP_PORT_TUNNEL_TYPE:-tcp}
+      - -tunnel_port=${PANEL_APP_PORT_TUNNEL_PORT}
+      - -tunnel_password=${PANEL_APP_PORT_TUNNEL_PASSWORD}
+      - -tunnel_target=${PANEL_APP_PORT_TUNNEL_TARGET}
+      
+      # UDP配置
+      - -udp_port=${PANEL_APP_PORT_UDP_PORT}
+      - -udp_target=${PANEL_APP_PORT_UDP_TARGET}
+      
+      # 性能配置
+      - -max_conn=${PANEL_APP_PORT_MAX_CONN:-1000}
+      - -pool_count=${PANEL_APP_PORT_POOL_COUNT:-10}
+      - -flow_limit=${PANEL_APP_PORT_FLOW_LIMIT:-1000}
+      - -rate_limit=${PANEL_APP_PORT_RATE_LIMIT:-1000}
+      - -read_timeout=${PANEL_APP_PORT_READ_TIMEOUT:-60}
+      - -write_timeout=${PANEL_APP_PORT_WRITE_TIMEOUT:-60}
+      
+      # 安全配置
+      - -crypt=${PANEL_APP_PORT_CRYPT:-true}
+      - -compress=${PANEL_APP_PORT_COMPRESS:-true}
+      - -tls_enable=${PANEL_APP_PORT_TLS_ENABLE:-false}
+      - -tls_cert_file=/cert/client.crt
+      - -tls_key_file=/cert/client.key
+      - -ca_file=/cert/ca.crt
+      
+      # 高级配置
+      - -proxy_protocol=${PANEL_APP_PORT_PROXY_PROTOCOL:-false}
+      - -health_check_timeout=${PANEL_APP_PORT_HEALTH_CHECK_TIMEOUT:-60}
+      - -health_check_url=${PANEL_APP_PORT_HEALTH_CHECK_URL}
+      - -health_check_max_failed=${PANEL_APP_PORT_HEALTH_CHECK_MAX_FAILED:-3}
+      - -proxy_timeout=${PANEL_APP_PORT_PROXY_TIMEOUT:-60}
+      - -auth_key=${PANEL_APP_PORT_AUTH_KEY}
+      - -basic_username=${PANEL_APP_PORT_BASIC_USERNAME}
+      - -basic_password=${PANEL_APP_PORT_BASIC_PASSWORD}
+      
+      # 日志和调试
+      - -log_level=${PANEL_APP_PORT_LOG_LEVEL:-info}
+      - -log_path=/var/log/npsc/npsc.log
+      - -debug=${PANEL_APP_PORT_DEBUG:-false}
       - -local_port=${NPSC_LOCAL_PORT}
       - -target_addr=${NPSC_TARGET_ADDR}
       - -auto_reconnection=${NPSC_AUTO_RECONNECTION:-true}
