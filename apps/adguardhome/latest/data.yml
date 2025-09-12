@@ -34,7 +34,7 @@ additionalProperties:
             ko: 초기 설정 웹 포트
             zh-Hant: 初始設定網頁埠
             zh: 初始设置网页端口
-        - default: 53
+        - default: 5353
           edit: true
           envKey: PANEL_APP_PORT_DNS
           labelEn: Plain DNS port
@@ -68,7 +68,7 @@ additionalProperties:
             ko: DHCP 서비스 포트
             zh-Hant: DHCP 服務埠
             zh: DHCP 服务端口
-        - default: 443
+        - default: 8443
           edit: true
           envKey: PANEL_APP_PORT_DOH
           labelEn: DOH service port
